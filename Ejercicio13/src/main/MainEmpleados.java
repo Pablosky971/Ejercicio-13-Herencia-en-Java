@@ -49,39 +49,48 @@ public class MainEmpleados {
 		d.setNombre("Stefan");
 		d.setSueldoBase(3150.50);
 		
-		int i = 0;
+		List<Empleado> empleadosCargo = new ArrayList<>();
 		
+		int i=0;
 		for(i=0;i<=3;i++) {
-			d.getEmpleadosCargo().add(le.get(i));
+			empleadosCargo.add(le.get(i));
 			
 		}
 		
-		le.add(d);
 		
+		d.setEmpleadosCargo(empleadosCargo);
+        le.add(d);
 		
-			int n = 0;
-			for(Empleado e : le) {
-				if(e instanceof Directivo) {
-					e = (Directivo) e;
-					double s = e.sueldoFinal();
-					System.out.println("El sueldo del directivo " + n + "es: " + s);
-				} 
+        MainEmpleados me = new MainEmpleados();
+		me.calcularSueldoFinal(le);
+		
+			
+		}
+	
+	public void calcularSueldoFinal(List<Empleado> le) {
+		int n = 0;		
+		for(Empleado e : le) {
+			if(e instanceof Directivo) {
+				e = (Directivo) e;
+				double s = e.sueldoFinal();
+				System.out.println("El sueldo del directivo " + n + " es: " + s);
+			} 
 				
-				if(e instanceof Jefe) {
+			if(e instanceof Jefe) {
 					e = (Jefe) e;
 					double s = e.sueldoFinal();
-					System.out.println("El sueldo del jefe " + n + "es: " + s);
+					System.out.println("El sueldo del jefe " + n + " es: " + s);
 				}
 				
 				if(e instanceof Trabajador) {
 					e = (Trabajador) e;
-					double s = e.sueldoFinal();
-					System.out.println("El sueldo del trabajador" + n + "es: " + s);
+					double s = e.sueldoFinal();					
+					System.out.println("El sueldo del trabajador " + n + " es: " + s);
 				}
 				 
 				n++;
-			}
-			}
+	}
+		}
 			
 	} 
 

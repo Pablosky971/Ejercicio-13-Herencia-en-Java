@@ -9,8 +9,9 @@ public class Directivo extends Empleado {
 	
 	public double sueldoFinal() {
 		
-		int nEmpleados = empleadosCargo.size();
+		int nEmpleados = this.empleadosCargo.size();
 		
+		System.out.println("Valor de nEmpleados: " + nEmpleados);		
 		double extra = nEmpleados * 100.00;
 		
 		return sueldoBase + extra;
